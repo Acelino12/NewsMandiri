@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constraintadapter"
+    android:padding="5dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:padding="5dp"
+        android:orientation="horizontal"
+        android:background="@drawable/background_headline">
+
+        <!-- Gambar -->
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="10dp">
+
+            <ImageView
+                android:id="@+id/imagelist"
+                android:layout_width="120dp"
+                android:layout_height="80dp"
+                tools:src="@drawable/loading"
+                />
+
+        </androidx.cardview.widget.CardView>
+
+        <!-- Text -->
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_marginStart="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingEnd="5dp">
+
+
+            <!-- Judul Berita -->
+            <TextView
+                android:id="@+id/judullistberita"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:text="High-speed train company Hyperloop One shuts down"/>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent">
+
+                <!-- Penerbit -->
+
+                <TextView
+                    android:id="@+id/penerbitlistberita"
+                    android:layout_width="100dp"
+                    android:layout_height="20dp"
+                    tools:text="BBC News"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"/>
+
+                <!-- Tahun Terbit -->
+
+                <TextView
+                    android:id="@+id/tanggallistberita"
+                    android:layout_width="80dp"
+                    android:layout_height="20dp"
+                    tools:text="10 Jan, 2023"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
