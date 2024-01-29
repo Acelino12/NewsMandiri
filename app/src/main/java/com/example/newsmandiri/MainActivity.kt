@@ -3,7 +3,6 @@ package com.example.newsmandiri
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.newsmandiri.DetailActivity.Companion.Extra_News
@@ -22,13 +21,17 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        getAPIEveryting()
+        recyclerViewEveryting()
 
+    }
+
+    private fun getAPIEveryting() {
         ApiService.create().getdata().enqueue(object : Callback<NewsResponse>{
             override fun onResponse(call: Call<NewsResponse>, response: Response<NewsResponse>) {
                 if (response.isSuccessful){
                     val articel : List<ArticlesItem> = response.body()?.articles as List<ArticlesItem>
                     adapter.setnews(articel)
-                    showData(response.body()!!)
                 }
 
             }
@@ -38,30 +41,18 @@ class MainActivity : AppCompatActivity() {
             }
 
         })
-
-        recyclerView()
-
     }
 
-    private fun showData(data: NewsResponse) {
-        val judul = findViewById<TextView>(R.id.judulheadline)
-        val penerbit = findViewById<TextView>(R.id.penerbitheadline)
-        val tanggal = findViewById<TextView>(R.id.tanggalheadline)
-        judul.text = data.status
-        penerbit.text = data.status
-        tanggal.text = data.status
-    }
-
-    private fun recyclerView() {
+    private fun recyclerViewEveryting() {
         val rv = findViewById<RecyclerView>(R.id.listrecycler)
         adapter = MainAdapter {
-            moveActivity(it)
+            moveActivityEveryting(it)
         }
         rv.layoutManager = LinearLayoutManager(this)
         rv.adapter = adapter
     }
 
-    private fun moveActivity(news: ArticlesItem) {
+    private fun moveActivityEveryting(news: ArticlesItem) {
         val intent = Intent(this, DetailActivity::class.java)
         intent.putExtra(Extra_News, news)
         startActivity(intent)

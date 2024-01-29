@@ -15,7 +15,7 @@ class MainAdapter ( private val listener: (ArticlesItem) -> Unit) :
 
     private var news = listOf<ArticlesItem>()
 
-    fun setnews(news:List<ArticlesItem>){
+    fun setnews(news: List<ArticlesItem>){
         this.news = news
         notifyDataSetChanged()
     }
